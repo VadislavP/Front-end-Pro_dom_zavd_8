@@ -9,18 +9,18 @@
 
 
 
-let user = prompt("Введіть ім'я користувача");
+let name = prompt("Введіть ім'я користувача");
 let age = prompt("Введіть вік користувача");
 let make = prompt("Введіть марку автомобіля");
 let model = prompt("Введіть модель автомобіля");
 let year = prompt("Введіть рік випуску автомобіля");
 let color = prompt("Введіть колір автомобіля");
 
-function UserData(user, age) {
-    this.user = user;
+function UserData(name, age) {
+    this.name = name;
     this.age = age;
 }
-const client = new UserData(user, age);
+const client = new UserData(name, age);
 
 function Car (make, model, year, color){
     this.make = make;
@@ -29,9 +29,9 @@ function Car (make, model, year, color){
     this.color = color;
 
     addClient = function () {        
-        const addData = { user, age, make, model, year, color };
+        const addData = { name, age, make, model, year, color };
         this.addData = addData;
-        return `клієнт: ${user}, вік: ${age}, марка автомобіля: ${make}, модель автомобіля: ${model}, рік випуску автомобіля: ${year}, колір автомобіля: ${color}`
+        return `клієнт: ${name}, вік: ${age}, марка автомобіля: ${make}, модель автомобіля: ${model}, рік випуску автомобіля: ${year}, колір автомобіля: ${color}`
     }
 }
 
@@ -42,4 +42,3 @@ console.log(client); // Виводить дані про клієнта
 console.log(auto); // Виводить дані про автомобіль 
 console.log(addClient()); // Метод функції Car, який повертає значення із данними про клієнта та автомобіль
 console.log(addData) // константа addData, яка була створена в методі addClient, яка створює новий об'єкт з даними про клієнта та про автомобіль
-
