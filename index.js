@@ -27,19 +27,19 @@ function Car (make, model, year, color){
     this.model = model;
     this.year = year;
     this.color = color;
-    this.user = user;
-    this.age = age;
 
-    // this.addClient = function() {
-    //     this.user,
-    //     this.age
-    // }
-    
+    addClient = function () {        
+        const addData = { user, age, make, model, year, color };
+        this.addData = addData;
+        return `клієнт: ${user}, вік: ${age}, марка автомобіля: ${make}, модель автомобіля: ${model}, рік випуску автомобіля: ${year}, колір автомобіля: ${color}`
+    }
 }
 
 const auto = new Car(make, model, year, color)
 
 
-console.log(client);
-console.log(auto);
-// auto.addClient()
+console.log(client); // Виводить дані про клієнта
+console.log(auto); // Виводить дані про автомобіль 
+console.log(addClient()); // Метод функції Car, який повертає значення із данними про клієнта та автомобіль
+console.log(addData) // константа addData, яка була створена в методі addClient, яка створює новий об'єкт з даними про клієнта та про автомобіль
+
