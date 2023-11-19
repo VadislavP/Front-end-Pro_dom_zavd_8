@@ -1,44 +1,54 @@
-// Максимально використовуючи функції та конструктори.
-
-//     Створити сутність людини, яка міститиме властивості “ім'я” та “вік”. А також мати метод виведення даних об'єкта
-//      Створити сутність автомобіля.Вона має містити мінімум 3 характеристики.А також мати метод виведення на екран даних про цей автомобіль.І метод присвоєння цього автомобіля власнику(метод повинен записати в автомобіль об'єкт власника з попереднього пункту)
-
-// Всі дані про людину та автомобіль отримувати від користувача(prompt)
-
-
-
-
-
-let name = prompt("Введіть ім'я користувача");
-let age = prompt("Введіть вік користувача");
-let make = prompt("Введіть марку автомобіля");
-let model = prompt("Введіть модель автомобіля");
-let year = prompt("Введіть рік випуску автомобіля");
-let color = prompt("Введіть колір автомобіля");
+const name = prompt("Введіть ім'я користувача");
+const age = prompt("Введіть вік користувача");
 
 function UserData(name, age) {
     this.name = name;
     this.age = age;
 }
+
 const client = new UserData(name, age);
 
-function Car (make, model, year, color){
-    this.make = make;
+client.LogData = function () {
+    console.log("Ім'я:" ,name);
+    console.log("Вік:", age)
+}
+
+const brand = prompt("Введіть марку автомобіля");
+const model = prompt("Введіть модель автомобіля");
+const year = prompt("Введіть рік випуску автомобіля");
+const color = prompt("Введіть колір автомобіля");
+
+
+function Car (brand, model, year, color){
+    this.brand = brand;
     this.model = model;
     this.year = year;
     this.color = color;
 
-    addClient = function () {        
-        const addData = { name, age, make, model, year, color };
-        this.addData = addData;
-        return `клієнт: ${name}, вік: ${age}, марка автомобіля: ${make}, модель автомобіля: ${model}, рік випуску автомобіля: ${year}, колір автомобіля: ${color}`
+    this.setOwner = function (client) {
+        this.owner = client
     }
 }
 
-const auto = new Car(make, model, year, color)
+const auto = new Car(brand, model, year, color);
+auto.LogData = function () {
+    console.log("Інформація про автомобіль")
+    console.log("Марка: ", brand);
+    console.log("Модель: ", model);
+    console.log("Рік випуску: ", year);
+    console.log("Колір автомобіля: ", color)
+}
 
 
-console.log(client); // Виводить дані про клієнта
-console.log(auto); // Виводить дані про автомобіль 
-console.log(addClient()); // Метод функції Car, який повертає значення із данними про клієнта та автомобіль
-console.log(addData) // константа addData, яка була створена в методі addClient, яка створює новий об'єкт з даними про клієнта та про автомобіль
+
+
+
+
+// auto.setOwner(client);
+client.LogData()// Виводить дані про клієнта
+auto.LogData() // Виводить дані про автомобіль
+console.log("Інформація автомобіль та його власника:");
+auto.LogData();
+console.log("Власник автомобіля:");
+client.LogData();
+console.log(auto);
